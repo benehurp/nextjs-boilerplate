@@ -4,8 +4,10 @@ import Home from '.'
 
 describe('<Home />', () => {
    it('shold render the heading', () => {
-      render(<Home />)
+      const { container } = render(<Home />)
 
       expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument()
+
+      expect(container.firstChild).toMatchSnapshot()
    })
 })
